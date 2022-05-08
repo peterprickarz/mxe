@@ -6,7 +6,7 @@ The main changes are:
 2. Small changes to context menus to be more accessible
 3. Uses Houdinis package system
 
-This plugin replaces the context menu options coming from the original plugin. It works with and without SideFXLabs installed.
+This extension replaces the context menu options coming from the original one. It works with and without SideFXLabs installed.
 
 There is a comparison of external editors and instructions to make them work with autocompletion and some other nice features for VEX and Python below. 
 
@@ -53,11 +53,11 @@ You can use autosave features of your editor as a sort of live editing feature. 
 |        |                                       [VSCode](https://code.visualstudio.com/)                                       |                                                        [PyCharm](https://www.jetbrains.com/pycharm/)                                                       |                                           [Sublime Text](https://www.sublimetext.com/)                                          |
 |--------|:----------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|
 | **Python** |                                          ✔️                                         |                                                            ✔️                                                           |                                                  ✔️                                                 |
-| Pros   | Great Autocompletion with Pylance <br> Fast startup <br> Decent project management features <br> Clean UI  | Great Autocompletion <br> Relatively simple setup <br> Great features for Python development <br> You probably use it already anyways |                               Fast startup <br> Clean UI                              |
-| Cons   |                  Complex setup <br> Lacks features compared to PyCharm                  |                                 Slow startup time <br> Can be convoluted for simple scripts                                 |                               Lacks basic features <br> Bad Autocompletion                              |
+| Pros   | - Great Autocompletion with Pylance <br> - Fast startup <br> - Decent project management features <br> - Clean UI  | - Great Autocompletion <br> - Relatively simple setup <br> - Great features for Python development <br> - You probably use it already anyways |                              - Fast startup <br> - Clean UI                              |
+| Cons   |                 - Complex setup <br> - Lacks features compared to PyCharm                  |                                - Slow startup time <br> - Can be convoluted for simple scripts                                 |                              - Lacks basic features <br> - Bad Autocompletion                              |
 | **VEX**    |                                          ✔️                                         |                                                            ❌                                                           |                                                  ✔️                                                 |
-| Pros   |              Good Autocompletion <br> Plugin for opening docs of functions              |                                                            -                                                           | Good Autocompletion <br> Snippets(for loops etc.) <br> VEX documentation in editor |
-| Cons   |                             No documentation in editor                             |                                                            -                                                           |                                        Not free                                                           |
+| Pros   |             - Good Autocompletion <br> - Plugin for opening docs of functions              |                                                            -                                                           | - Good Autocompletion <br> - Snippets(for loops etc.) <br> - VEX documentation in editor |
+| Cons   |                            - No documentation in editor                             |                                                            -                                                           |                                       - Not free                                                           |
 
 As you can see, VSCode is decent for both VEX and Python and has the advantage that you can do both in one editor. However, PyCharm is equally good or better for Python and Sublime Text is better for VEX. I recommend deciding this the following way:
 
