@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+-->
+
+<menuDocument>
+    <!-- menuDocument can only contain 1 menu element, whose id is 
+         implicitly "root_menu"
+      -->
+    <menu>
+        <!-- Remove existing external editor plugin menu items -->
+        <!-- External Editor -->
+    <addScriptItem id="open_external_editor">
+      <label>Edit in External Editor</label>
+      <parent>expression_menu</parent>
+      <!--         <insertAfter>edit_expression</insertAfter>-->
+      <context>
+        <expression>
+          <![CDATA[
+try:
+  from HoudiniExprEditor import ParmWatcher
+  return ParmWatcher.is_valid_parm(kwargs["parms"][0])
+except:
+  return False]]>
+        </expression>
+      </context>
+      <scriptCode>
+        <![CDATA[
+from HoudiniExprEditor import ParmWatcher
+try:
+  reload(ParmWatcher)
+except NameError:
+  from importlib import reload
+  reload(ParmWatcher)
+ParmWatcher.add_watcher(kwargs["parms"][0])]]>
+      </scriptCode>
+    </addScriptItem>
+    <!-- Remove watcher -->
+    <addScriptItem id="remove_file_watcher">
+      <label>Remove File Watcher</label>
+      <parent>expression_menu</parent>
+      <!--         <insertAfter>open_external_editor</insertAfter>-->
+      <context>
+        <expression>
+          <![CDATA[
+try:
+  from HoudiniExprEditor import ParmWatcher
+  return ParmWatcher.parm_has_watcher(kwargs["parms"][0])
+except:
+  return False]]>
+        </expression>
+      </context>
+      <scriptCode>
+        <![CDATA[
+from HoudiniExprEditor import ParmWatcher
+try:
+  reload(ParmWatcher)
+except NameError:
+  from importlib import reload
+  reload(ParmWatcher)
+ParmWatcher.remove_file_watched(kwargs["parms"][0])]]>
+      </scriptCode>
+    </addScriptItem>
+
+    
+      <removeItem id="open_external_editor"/>
+      <removeItem id="remove_file_watcher"/>
+
+      <!-- Add new menu items -->
+      <!-- External Editor -->
+      
+      <addScriptItem id="mxe-open_external_editor">
+			  <label>MXE: Edit</label>
+        <parent>root_menu</parent>
+        <insertBefore>revert_to_prev_val</insertBefore>
+			  <context>
+				  <expression>
+  <![CDATA[
+try:
+  from MXE import ParmWatcher
+  return ParmWatcher.is_valid_parm(kwargs["parms"][0])
+except:
+  return False]]></expression>
+			  </context>
+			  <scriptCode>
+          <![CDATA[
+from MXE import ParmWatcher
+try:
+  reload(ParmWatcher)
+except NameError:
+  from importlib import reload
+  reload(ParmWatcher)
+ParmWatcher.add_watcher(kwargs["parms"][0])]]>
+			  </scriptCode>
+		  </addScriptItem>
+
+      <!-- Remove watcher -->
+
+      <addScriptItem id="mxe-remove_file_watcher">
+        <label>MXE: Remove File Watcher</label>
+        <parent>root_menu</parent>
+        <insertAfter>mxe-open_external_editor</insertAfter>
+        <context>
+          <expression>
+            <![CDATA[
+try:
+  from MXE import ParmWatcher
+  return ParmWatcher.parm_has_watcher(kwargs["parms"][0])
+except:
+  return False]]>
+          </expression>
+        </context>
+        <scriptCode>
+          <![CDATA[
+from MXE import ParmWatcher
+try:
+  reload(ParmWatcher)
+except NameError:
+  from importlib import reload
+  reload(ParmWatcher)
+ParmWatcher.remove_file_watched(kwargs["parms"][0])]]>
+        </scriptCode>
+      </addScriptItem>
+
+    </menu>
+</menuDocument>
