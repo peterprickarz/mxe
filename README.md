@@ -6,8 +6,6 @@ The main changes are:
 2. Small changes to context menus to be more accessible
 3. Uses Houdinis package system
 
-This extension replaces the context menu options coming from the original one. It works with and without SideFXLabs installed.
-
 There is a comparison of external editors and instructions to make them work with autocompletion and some other nice features for VEX and Python below. 
 
 You can also use these instructions if you're using the original version of this extension that ships with SideFXLabs.
