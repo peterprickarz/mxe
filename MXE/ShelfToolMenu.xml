@@ -63,66 +63,7 @@ hou.ui.displayMessage('My Action with kwargs:\n  ' + arguments)
 
 <menuDocument>
   <menu>
-    <!-- Remove existing external editor plugin menu items -->
-    <scriptItem id="expreditor_edit_shelf_tool">
-      <label>Edit in external editor...</label>
-      <insertAtIndex>2</insertAtIndex>
-      <context>
-        <expression>
-          <![CDATA[
-try:
-  from HoudiniExprEditor import ParmWatcher
-  return True
-except:
-  return False]]>
-        </expression>
-      </context>
-      <scriptCode>
-        <![CDATA[
-from HoudiniExprEditor import ParmWatcher
-try:
-  reload(ParmWatcher)
-except NameError:
-  from importlib import reload
-  reload(ParmWatcher)
-tool = hou.shelves.tool(kwargs["ownername"])
-if tool:
-  ParmWatcher.add_watcher(tool, type_="__shelf_tool|" + str(tool.language()).split('.')[-1].lower())]]>
-      </scriptCode>
-    </scriptItem>
-
-    <scriptItem id="expreditor_remove_watcher_shelf_tool">
-      <label>Remove file watcher</label>
-      <context>
-        <expression>
-          <![CDATA[
-try:
-  from HoudiniExprEditor import ParmWatcher
-  tool = hou.shelves.tool(kwargs["ownername"])
-  if tool:
-    return ParmWatcher.tool_has_watcher(tool, type_="__shelf_tool|" + str(tool.language()).split('.')[-1].lower())
-except:
-  return False]]>
-        </expression>
-      </context>
-      <scriptCode>
-        <![CDATA[
-from HoudiniExprEditor import ParmWatcher
-try:
-  reload(ParmWatcher)
-except NameError:
-  from importlib import reload
-  reload(ParmWatcher)
-tool = hou.shelves.tool(kwargs["ownername"])
-if tool:
-  ParmWatcher.remove_file_watched(tool, type_="__shelf_tool|" + str(tool.language()).split('.')[-1].lower())]]>
-      </scriptCode>
-    </scriptItem>
-
-    
-    <removeItem id="expreditor_edit_shelf_tool"/>
-    <removeItem id="expreditor_remove_watcher_shelf_tool"/>
-
+   
     <!-- Add new menu items -->
 
     <scriptItem id="mxe-expreditor_edit_shelf_tool">
