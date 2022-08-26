@@ -9,46 +9,6 @@
          implicitly "root_menu"
       -->
   <menu>
-    <!-- Remove existing external editor plugin menu items -->
-    <addScriptItem id="set_external_editor">
-      <label>Set External Text Editor</label>
-      <parent>preferences_submenu</parent>
-      <insertAtIndex>26</insertAtIndex>
-      <scriptCode>
-        <![CDATA[
-from HoudiniExprEditor import ParmWatcher
-
-try:
-  reload(ParmWatcher)
-except NameError:
-  from importlib import reload
-  reload(ParmWatcher)
-
-ParmWatcher.set_external_editor()]]>
-      </scriptCode>
-    </addScriptItem>
-    
-    <removeItem id="set_external_editor"/>  
-
-     <!-- Set external python editor -->
-    <addScriptItem id="mxe-set_external_python-editor">
-      <label>MXE: Set Editor(Python)</label>
-      <parent>preferences_submenu</parent>
-
-      <scriptCode>
-        <![CDATA[
-from MXE import ParmWatcher
-
-try:
-  reload(ParmWatcher)
-except NameError:
-  from importlib import reload
-  reload(ParmWatcher)
-
-ParmWatcher.set_external_python_editor()]]>
-      </scriptCode>
-    </addScriptItem>
-
     <!-- Add new menu items -->
 
       <!-- Set external other editor -->
